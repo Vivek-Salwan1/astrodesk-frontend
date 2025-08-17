@@ -1,0 +1,10 @@
+.home-page{
+    background: radial-gradient(ellipse at bottom, #0f172a 0%, #000000 100%);
+}
+
+.customer-slider h1{
+    text-align: center;
+    font-size: 1.8rem;
+    color: #ffc947;
+    margin-bottom: 20px;
+}

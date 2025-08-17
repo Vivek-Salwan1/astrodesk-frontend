@@ -1,0 +1,106 @@
+.losshu-section {
+  color: #ffffff;
+  padding: 60px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('https://i.imgur.com/7AiPzBd.jpg'); /* galaxy/star background */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+  z-index: 1;
+}
+
+.losshu-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.losshu-content {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.losshu-content h2 {
+    font-size: 1.8rem;
+    color: #ffc947;
+    margin-bottom: 20px;
+  text-align: center;
+}
+
+.losshu-intro {
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+.losshu-grid-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.losshu-text-block {
+  flex: 1 1 400px;
+}
+
+.losshu-image-block {
+  flex: 1 1 300px;
+  text-align: center;
+}
+
+.losshu-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #ffd36955;
+}
+
+.losshu-highlights {
+  margin-top: 60px;
+  text-align: center;
+}
+
+.losshu-highlights h3 {
+  font-size: 1.8rem;
+  color: #ffc947;
+  margin-bottom: 20px;
+}
+
+.losshu-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.losshu-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid #ffd36933;
+  padding: 20px;
+  border-radius: 10px;
+  width: 180px;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  transition: transform 0.3s;
+}
+
+.losshu-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ffd36955;
+}
+
+.losshu-conclusion {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

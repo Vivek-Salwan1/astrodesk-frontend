@@ -1,0 +1,228 @@
+/* Reset default margin & padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Wrapper container */
+.all {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* First Page Styling */
+.fpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    flex-direction: column;
+}
+
+.report-note{
+    color: #28a745 ;
+}
+
+.fpage img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* Printing Styles */
+@media print {
+    @page {
+        size: A4;
+        margin: 7mm;
+        /* padding-top: 10mm;
+        padding-bottom: 10mm; */
+        margin: 7mm 7mm 7mm 7mm; 
+    }
+
+    .admin-nav{
+        display: none;
+    }
+    .report-note{
+        display: none;
+    }
+
+    .wrapper::after {
+        content: '';
+        position: fixed;
+        top: 2px;
+        left: 2px;
+        width: calc(100% - 5.6px);
+        height: calc(100% - 5.6px);
+        border: 1px solid brown;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .fpage {
+        width: 100%;
+        height: auto;
+        max-height: 100vh;
+    }
+
+    .fpage img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .btns{
+        display: none;
+    }
+
+    /* Page Breaking Rules */
+    .page-break {
+        page-break-after: always;
+        page-break-inside: avoid;
+        margin-top: 20px;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    img {
+        page-break-inside: avoid;
+    }
+    
+
+    /* Hide Buttons in Print */
+    .btns, .logout {
+        display: none;
+    }
+
+}
+
+/* Centering Box */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* General Styling */
+.all h1 {
+    text-align: center;
+}
+
+.report {
+    padding: 10px 20px;
+}
+
+/* Personal Data Section */
+.personalData {
+    width: 100%;
+    display: flex;
+    border: 2px solid brown;
+}
+
+/* Navgrah Grid */
+.navgrahBox {
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1.6px solid green;
+    margin: 5px;
+}
+
+.navgrahBox .box {
+    width: 100%;
+    border: 1.6px solid green;
+    font-weight: bolder;
+}
+
+/* Personal Details Section */
+.pData {
+    width: 60%;
+    border-left: 2px solid brown;
+    line-height: 40px;
+}
+
+/* Top Details */
+.topDetails {
+    display: flex;
+    justify-content: space-evenly;
+    background: rgba(239, 237, 237, 0.62);
+}
+
+/* Personal Details */
+.pDetails {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pDetails p span {
+    font-weight: bold;
+}
+
+.pD2 p span {
+    border: 1px solid brown;
+    padding: 5px 15px;
+}
+
+/* Buttons */
+.btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Headings */
+.data .heading {
+    font-weight: bold;
+}
+
+/* Buttons Styling */
+.print, .goBack {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+
+/* Layout Divider */
+.devider {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.devider .image {
+    width: 20%;
+}
+
+.devider .image img {
+    width: 100%;
+    height: auto;
+}
+
+.devider .data {
+    width: 80%;
+}
+
+/* Text Colors */
+.dayData, .bhagyank, .plan, .allText {
+    color: #15154e;
+}
+
+.dayData b, .bhagyank b {
+    color: darkblue;
+}

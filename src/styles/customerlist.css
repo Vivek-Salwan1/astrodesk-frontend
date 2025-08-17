@@ -1,0 +1,42 @@
+.customerlist {
+    padding: 1rem;
+    font-family: sans-serif;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  .top-bar input,
+  .top-bar select {
+    padding: 0.5rem;
+    font-size: 1rem;
+    max-width: 300px;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  table, th, td {
+    border: 1px solid #ccc;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  

@@ -1,0 +1,110 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-nav{
+  padding: 10px 15px 0px 15px;
+}
+
+.firstPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: -20px;
+  background-color: rgb(199, 198, 198);
+}
+
+.hidefPage {
+  display: none;
+}
+
+.lossuForm {
+  background-color: rgb(224, 223, 223);
+  padding: 20px 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lossuForm h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #4a90e2;
+  text-align: center;
+}
+
+.lossuForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.lossuForm input[type="text"],
+.lossuForm input[type="date"],
+.lossuForm input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.genderSection {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.genderSection label {
+  display: flex;
+  align-items: center;
+}
+
+.gender{
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 8px;
+}
+
+.genderSection input {
+  margin-right: 10px;
+}
+
+.lossuForm input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lossuForm input[type="submit"]:hover {
+  background-color: #357ab8;
+}
+
+
+
+
+.lossu .logout {
+  background-color: #777cec; /* Button background color */
+  color: white; /* Button text color */
+  border: none; /* Remove border */
+  border-radius: 10px;
+  padding: 5px 10px; /* Add padding */
+  font-size: 14px; /* Font size */
+  cursor: pointer; /* Change cursor on hover */
+  top: 10px;
+  right: 15px;
+  position: fixed;
+}

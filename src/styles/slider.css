@@ -1,0 +1,51 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slider-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  text-align: right;
+  margin: 0.5rem 0;
+  color: #ffc947;
+}
+
+.card p {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #333;
+  text-align: left;
+}
+
+.slick-center .card {
+  transform: scale(1.05);
+  border: 2px solid #ffc947;
+}
+
+
+.slick-slide {
+    padding: 0 10px; /* Adjust spacing here */
+    box-sizing: border-box;
+  }
+  
+  /* To avoid the cards sticking together */
+  .slider-container .slick-list {
+    margin: 0 -10px; /* Negative value of padding to keep alignment */
+  }

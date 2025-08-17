@@ -1,0 +1,104 @@
+/* Hero.css */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(ellipse at bottom, #0f172a 0%, #000000 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .hero-content {
+    z-index: 2;
+    padding: 0 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    background: linear-gradient(45deg, #ffd369, #ff9d00, #ffd369);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255, 211, 105, 0.3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: gradientFlow 8s ease infinite;
+    background-size: 200% 200%;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    color: #e2e8f0; /* Light blue-gray for better contrast */
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Star layers for depth */
+  .stars, .stars2, .stars3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-repeat: repeat;
+    background-position: 0 0;
+    animation: starAnimation 100s linear infinite;
+    z-index: 0;
+  }
+  
+  .stars {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.3;
+  }
+  
+  .stars2 {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.15;
+    animation-duration: 200s;
+  }
+  
+  .stars3 {
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.1;
+    animation-duration: 300s;
+  }
+  
+  @keyframes starAnimation {
+    from {
+      transform: translate(0, 0);
+    }
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+      font-size: 1rem;
+      padding: 0 20px;
+    }
+  }
+  

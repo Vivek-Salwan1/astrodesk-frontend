@@ -1,0 +1,27 @@
+.revenue-container {
+    padding: 20px;
+    width: 100%;
+    margin: auto;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+.revenue-container h2{
+    text-align: center;
+    padding-bottom: 10px;
+
+}
+
+  .revenue-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    line-height: 2;
+  }
+  
+  .revenue-card p {
+    font-size: 16px;
+  }
+  

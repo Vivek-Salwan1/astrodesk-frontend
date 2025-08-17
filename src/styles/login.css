@@ -1,0 +1,150 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at bottom, #0f172a 0%, #000000 100%);
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Star background effect */
+.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.1;
+    animation: starAnimation 100s linear infinite;
+    z-index: 0;
+}
+
+.login-page h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #ffd369, #ff9d00, #ffd369);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    letter-spacing: 1px;
+    animation: gradientFlow 8s ease infinite;
+    background-size: 200% 200%;
+    position: relative;
+    z-index: 1;
+}
+
+.login-page form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+.login-page form label {
+    display: block;
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.login-page form input[type="text"],
+.login-page form input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.login-page form input[type="text"]:focus,
+.login-page form input[type="password"]:focus {
+    outline: none;
+    border-color: #ffd369;
+    box-shadow: 0 0 0 2px rgba(255, 211, 105, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.login-page form input[type="submit"] {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(45deg, #ffd369, #ff9d00);
+    color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.login-page form input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 211, 105, 0.3);
+}
+
+.login-page form input[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.login-page form p {
+    color: #ff6b6b;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+@keyframes starAnimation {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .login-page h1 {
+        font-size: 2rem;
+    }
+
+    .login-page form {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
+
+    .login-page form input[type="text"],
+    .login-page form input[type="password"] {
+        padding: 0.7rem;
+    }
+}
