@@ -10,7 +10,7 @@ const AdminManagement = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [showAddForm, setShowAddForm] = useState(false);
-    const [newAdmin, setNewAdmin] = useState({ userId: '', password: '' });
+    const [newAdmin, setNewAdmin] = useState({ name: '', userId: '', password: '' });
     const [formError, setFormError] = useState('');
     const navigate = useNavigate();
 
@@ -89,7 +89,7 @@ const AdminManagement = () => {
             const response = await axios.post('https://astrobuddy-2wus.onrender.com/create-admin', newAdmin);
             if (response.data.message === "Admin created successfully") {
                 setShowAddForm(false);
-                setNewAdmin({ userId: '', password: '' });
+                setNewAdmin({ name: '', userId: '', password: '' });
                 fetchAdminData(); // Refresh the admin list
             }
         } catch (err) {
@@ -133,6 +133,16 @@ const AdminManagement = () => {
                     <div className="add-admin-form">
                         <h2>Add New Admin</h2>
                         <form onSubmit={handleAddAdmin}>
+                            <div className="form-group">
+                                <label htmlFor="name">Admin Name:</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    value={newAdmin.name}
+                                    onChange={(e) => setNewAdmin({ ...newAdmin, name: e.target.value })}
+                                    required
+                                />
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="userId">Admin ID:</label>
                                 <input
@@ -182,7 +192,7 @@ const AdminManagement = () => {
                         <tbody>
                             {admins.map((admin) => (
                                 <tr key={admin.userId}>
-                                    <td>{admin.userId}</td>
+                                    <td>{admin.name || '-'}</td>
                                     <td>{admin.userId}</td>
                                     <td>{admin.password}</td>
                                     <td>{admin.totalReports}</td>
