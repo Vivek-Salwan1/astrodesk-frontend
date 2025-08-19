@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/adminmanagement.css';
 import AdminNavbar from './AdminNavbar';
+import Loader from './Loader';
 
 const AdminManagement = () => {
     const [admins, setAdmins] = useState([]);
@@ -163,11 +164,14 @@ const AdminManagement = () => {
                     </div>
                 )}
 
+                {loading && <Loader />}
                 <div className="table-container">
                     <table className="admin-table">
                         <thead>
                             <tr>
                                 <th>Admin Name</th>
+                                <th>Admin ID</th>
+                                <th>Password</th>
                                 <th>Total Reports</th>
                                 <th>Join Date</th>
                                 <th>Total Revenue</th>
@@ -179,6 +183,8 @@ const AdminManagement = () => {
                             {admins.map((admin) => (
                                 <tr key={admin.userId}>
                                     <td>{admin.userId}</td>
+                                    <td>{admin.userId}</td>
+                                    <td>{admin.password}</td>
                                     <td>{admin.totalReports}</td>
                                     <td>{new Date(admin.joinDate).toLocaleDateString()}</td>
                                     <td>₹ {admin.totalRevenue.toLocaleString()}</td>

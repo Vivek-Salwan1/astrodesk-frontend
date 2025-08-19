@@ -4,6 +4,7 @@ import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 import '../styles/superadmindashboard.css';
 import AdminNavbar from './AdminNavbar';
+import Loader from './Loader';
 
 const SuperAdminDashboard = () => {
     const { userId } = useUser();
@@ -12,6 +13,7 @@ const SuperAdminDashboard = () => {
     const [totalAdmins, setTotalAdmins] = useState(0);
     const [totalRevenue, setTotalRevenue] = useState(0);
     const [recentAdmins, setRecentAdmins] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // Fetch total reports
@@ -36,7 +38,8 @@ const SuperAdminDashboard = () => {
             .then(resp => {
                 setTotalRevenue(resp.data.totalRevenue || 0);
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false));
     }, []);
 
 
@@ -58,6 +61,7 @@ const SuperAdminDashboard = () => {
             </div>
 
 
+            {loading && <Loader />}
             <div className="dashboard-grid">
                 {/* Report Generation Section */}
 

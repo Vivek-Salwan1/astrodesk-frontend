@@ -3,6 +3,7 @@ import '../styles/revenue.css';
 import AdminNavbar from './AdminNavbar';
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
+import Loader from './Loader';
 
 const Revenue = () => {
     const {userId} = useUser();
@@ -10,6 +11,7 @@ const Revenue = () => {
     const [yearlyRevenue, setYearlyRevenue] = useState(0);
     const [monthlyRevenue, setMonthlyRevenue] = useState(0);
     const [dailyRevenue, setDailyRevenue] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (!userId) return;
@@ -48,13 +50,15 @@ const Revenue = () => {
             })
             .catch((err) => {
                 console.error("Error fetching daily revenue:", err);
-            });
+            })
+            .finally(() => setLoading(false));
     }, [userId]);
 
     return (
         <div className="revenue-container">
             <AdminNavbar/> <br />
             <h2>Revenue Management</h2>
+            {loading && <Loader />}
             <div className="revenue-card">
                 <p><strong>Total Revenue Generated:</strong> ₹ {totalRevenue.toLocaleString()}</p>
             </div> <br />

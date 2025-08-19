@@ -57,7 +57,30 @@
     cursor: pointer;
     border-radius: 10px;
     border: 1px solid black;
+    background: #06ABE2;
+    color: white;
+    transition: all 0.3s ease;
   }
+
+   .generate-btn:hover:not(.disabled) {
+    background: #0596c7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(6, 171, 226, 0.3);
+  }
+
+   .generate-btn.disabled {
+    background: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    border: 1px solid #cccccc;
+    opacity: 0.6;
+  }
+
+   .generate-btn.disabled:hover {
+    transform: none;
+    box-shadow: none;
+    background: #cccccc;
+   }
   
   
   .note {

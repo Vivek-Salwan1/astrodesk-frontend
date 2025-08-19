@@ -3,12 +3,14 @@ import '../styles/settings.css';
 import AdminNavbar from './AdminNavbar';
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
+import Loader from './Loader';
 
 const Settings = () => {
   const [charges, setCharges] = useState('');
   const [currentCharges, setCurrentCharges] = useState(null);
   const { userId } = useUser();
 
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     // Fetch current charges
     axios.get(`https://astrobuddy-2wus.onrender.com/get-admin-charges/${userId}`)
@@ -18,7 +20,8 @@ const Settings = () => {
           setCharges(resp.data.charges.toString());
         }
       })
-      .catch(err => console.log('error fetching charges', err));
+      .catch(err => console.log('error fetching charges', err))
+      .finally(() => setLoading(false));
   }, [userId]);
 
   const handleSubmit = (e) => {
@@ -42,6 +45,7 @@ const Settings = () => {
       <AdminNavbar />
 
       <div className="settings-container">
+        {loading && <Loader />}
         <h2>Settings</h2>
 
         <form onSubmit={handleSubmit}>

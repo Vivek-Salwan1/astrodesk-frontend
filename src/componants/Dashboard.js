@@ -4,16 +4,19 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 import AdminNavbar from './AdminNavbar';
+import Loader from './Loader';
 
 const Dashboard = () => {
     const { userId } = useUser();
     const navigate = useNavigate();
     const [totalReports, setTotalReports] = useState(0);
     const [charges, setCharges] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const handleGenerateReport = () => {
         navigate('/skhfsjfks')
     };
+    
 
     useEffect(() => {
         // Fetch total reports
@@ -34,7 +37,8 @@ const Dashboard = () => {
             .then(resp => {
                 setCharges(resp.data.charges);
             })
-            .catch(err => console.log(err));
+            .catch(err => console.log(err))
+            .finally(() => setLoading(false));
     }, [userId]);
 
     return (
@@ -44,6 +48,7 @@ const Dashboard = () => {
            <br />
 
             {/* Report Generation Section */}
+            {loading && <Loader />}
             {(!charges || charges <= 0) && (
                 <p className="note">Before generating first report go to setting and set your charges per report, it's imp for revenue mgmt calculations</p>
             )}
@@ -51,7 +56,11 @@ const Dashboard = () => {
                 {/* Generate Report Box */}
                 <div className="report-card">
                     <div className="report-title">New Losshu Report</div>
-                    <button className="generate-btn" onClick={handleGenerateReport}>
+                    <button 
+                        className={`generate-btn ${(!charges || charges <= 0) ? 'disabled' : ''}`}
+                        onClick={handleGenerateReport}
+                        disabled={!charges || charges <= 0}
+                    >
                         Generate
                     </button>
                 </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/customerlist.css'
 import AdminNavbar from './AdminNavbar';
+import Loader from './Loader';
 import { useUser } from '../contexts/UserContext';
 
 
@@ -70,7 +71,7 @@ const CustomerList = () => {
 
             <div className="table-wrapper">
                 {loading ? (
-                    <p>Loading...</p>
+                    <Loader />
                 ) : (
                     <table>
                         <thead>
