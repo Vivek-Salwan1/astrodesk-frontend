@@ -53,16 +53,7 @@ const Nav = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <div className={`mobile-menu ${mobileMenuOpen ? 'active' : ''}`}>
-        <div className="mobile-login-options">
-          <a href="/login" className="mobile-login-option" onClick={closeMobileMenu}>
-            Admin Login
-          </a>
-          <a href="/super-admin-login" className="mobile-login-option" onClick={closeMobileMenu}>
-            Super Admin Login
-          </a>
-        </div>
-      </div>
+      
     </nav>
   );
 };
