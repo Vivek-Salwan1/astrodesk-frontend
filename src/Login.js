@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import './styles/login.css'
+import './styles/superadminlogin.css'
 import { useUser } from './contexts/UserContext';
 import axios from 'axios';
 import AdminNavbar from './componants/AdminNavbar';
@@ -48,36 +48,46 @@ const { setUserId } = useUser();
     }
 
     return (
-        <div className='login-page'>
-            <h1>Losshu Admin</h1>
-
-            <form onSubmit={handleLogin}>
-                <label htmlFor="username">Username</label>
-                <input type="text" name='username' onChange={e => setUserInput(e.target.value)} />
-
-                <label htmlFor="password">Password</label>
-                <div className='password-input'>
-                    <input
-                        type={showPassword ? 'text' : 'password'}
-                        name='password'
-                        onChange={e => setPass(e.target.value)}
-                    />
-                    <button
-                        type="button"
-                        className='toggle-password'
-                        onClick={() => setShowPassword(prev => !prev)}
-                        aria-label={showPassword ? 'Hide password' : 'Show password'}
-                    >
-                        {showPassword ? 'Hide' : 'Show'}
+        <div className="login-container">
+            <div className="login-box">
+                <h2>Losshu Admin</h2>
+                {ack && <div className="error-message">{ack}</div>}
+                <form onSubmit={handleLogin}>
+                    <div className="form-group">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            value={userInput}
+                            onChange={e => setUserInput(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className="form-group password-group">
+                        <label htmlFor="password">Password</label>
+                        <div className="password-input">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                value={pass}
+                                onChange={e => setPass(e.target.value)}
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="toggle-password"
+                                onClick={() => setShowPassword(prev => !prev)}
+                                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                            >
+                                {showPassword ? 'Hide' : 'Show'}
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" className="login-btn" disabled={loading}>
+                        {loading ? <Loader size={20} /> : 'Login'}
                     </button>
-                </div>
-
-                <button type="submit" disabled={loading} className="login-submit-btn">
-                    {loading ? <Loader size={20} /> : 'Login'}
-                </button>
-                <p>{ack && ack}</p>
-            </form>
-
+                </form>
+            </div>
         </div>
     )
 }
