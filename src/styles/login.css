@@ -73,6 +73,34 @@
     transition: all 0.3s ease;
 }
 
+/* Password input with toggle */
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input input {
+    width: 100%;
+    padding-right: 80px;
+    margin-bottom: 0;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #e2e8f0;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
 .login-page form input[type="text"]:focus,
 .login-page form input[type="password"]:focus {
     outline: none;
@@ -81,6 +109,41 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Update existing button styles slightly for centering */
+.login-submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: linear-gradient(45deg, #ffd369, #ff9d00);
+    color: #0f172a;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+}
+
+.login-submit-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 211, 105, 0.3);
+}
+
+.login-submit-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.login-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Keep the old input[type="submit"] styles for backward compatibility */
 .login-page form input[type="submit"] {
     width: 100%;
     padding: 0.8rem;

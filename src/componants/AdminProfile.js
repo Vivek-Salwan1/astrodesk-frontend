@@ -8,11 +8,10 @@ const AdminProfile = () => {
 
     // Example hardcoded admin data (you can fetch this from the backend using userId)
     const adminData = {
-        name: 'Rahul Vikas Sharma',
-        address: '123 Main Street, Mumbai, Maharashtra',
-        phone: '+91 9876543210',
-        username: 'admin75',
-        password: '********',
+        name: 'Abhishek jangam',
+        address: 'Satara, Maharashtra',
+        phone: '+91 9637519217',
+        username: 'abhishek17',
     };
 
     return (

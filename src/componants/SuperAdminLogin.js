@@ -3,17 +3,21 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import axios from 'axios';
 import '../styles/superadminlogin.css';
+import Loader from './Loader';
 
 const SuperAdminLogin = () => {
     const [userInput, setUserInput] = useState('');
     const [pass, setPass] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const { setUserId } = useUser();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
+        setLoading(true);
 
         try {
             const response = await axios.post('https://astrobuddy-2wus.onrender.com/super-admin-login', {
@@ -33,6 +37,8 @@ const SuperAdminLogin = () => {
         } catch (err) {
             setError('An error occurred. Please try again.');
             console.error('Login error:', err);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -52,17 +58,29 @@ const SuperAdminLogin = () => {
                             required
                         />
                     </div>
-                    <div className="form-group">
+                    <div className="form-group password-group">
                         <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            value={pass}
-                            onChange={(e) => setPass(e.target.value)}
-                            required
-                        />
+                        <div className="password-input">
+                            <input
+                                type={showPassword ? 'text' : 'password'}
+                                id="password"
+                                value={pass}
+                                onChange={(e) => setPass(e.target.value)}
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="toggle-password"
+                                onClick={() => setShowPassword(prev => !prev)}
+                                aria-label={showPassword ? 'Hide password' : 'Show password'}
+                            >
+                                {showPassword ? 'Hide' : 'Show'}
+                            </button>
+                        </div>
                     </div>
-                    <button type="submit" className="login-btn">Login</button>
+                    <button type="submit" className="login-btn" disabled={loading}>
+                        {loading ? <Loader size={20} /> : 'Login'}
+                    </button>
                 </form>
             </div>
         </div>

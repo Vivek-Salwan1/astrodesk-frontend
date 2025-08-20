@@ -48,6 +48,33 @@
     background: #f8f9fa;
 }
 
+/* Password input group */
+.password-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input input {
+    width: 100%;
+    padding-right: 80px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 8px;
+    background: transparent;
+    border: 1px solid #cfd8dc;
+    color: #2c3e50;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.toggle-password:hover {
+    background: #eceff1;
+}
+
 .form-group input:focus {
     outline: none;
     border-color: #4CAF50;
@@ -67,16 +94,27 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
 }
 
-.login-btn:hover {
+.login-btn:hover:not(:disabled) {
     background: #45a049;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
 }
 
-.login-btn:active {
+.login-btn:active:not(:disabled) {
     transform: translateY(0);
+}
+
+.login-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    background: #4CAF50;
 }
 
 .error-message {

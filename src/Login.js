@@ -5,6 +5,7 @@ import './styles/login.css'
 import { useUser } from './contexts/UserContext';
 import axios from 'axios';
 import AdminNavbar from './componants/AdminNavbar';
+import Loader from './componants/Loader';
 
 function Login() {
 const { setUserId } = useUser();
@@ -12,12 +13,13 @@ const { setUserId } = useUser();
     const [userInput, setUserInput] = useState('');
     const [pass, setPass] = useState('');
     const [ack, setAck] = useState('');
-
+    const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
 
 
     const handleLogin = (e) => {
         e.preventDefault()
-
+        setLoading(true);
 
         axios.post('https://astrobuddy-2wus.onrender.com/login', {userInput, pass})
         .then(resp => {
@@ -33,6 +35,13 @@ const { setUserId } = useUser();
                 setAck(resp.data.message);
             }
         })
+        .catch(err => {
+            setAck('Login failed. Please try again.');
+            console.error(err);
+        })
+        .finally(() => {
+            setLoading(false);
+        });
 
 
 
@@ -47,9 +56,25 @@ const { setUserId } = useUser();
                 <input type="text" name='username' onChange={e => setUserInput(e.target.value)} />
 
                 <label htmlFor="password">Password</label>
-                <input type="password" name='password' onChange={e => setPass(e.target.value)} />
+                <div className='password-input'>
+                    <input
+                        type={showPassword ? 'text' : 'password'}
+                        name='password'
+                        onChange={e => setPass(e.target.value)}
+                    />
+                    <button
+                        type="button"
+                        className='toggle-password'
+                        onClick={() => setShowPassword(prev => !prev)}
+                        aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    >
+                        {showPassword ? 'Hide' : 'Show'}
+                    </button>
+                </div>
 
-                <input type="submit" value='Login' />
+                <button type="submit" disabled={loading} className="login-submit-btn">
+                    {loading ? <Loader size={20} /> : 'Login'}
+                </button>
                 <p>{ack && ack}</p>
             </form>
 
